@@ -7,16 +7,20 @@ require('ejs')
 let data = "";
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
+const { City, CityLite } = require('country-state-city-js');
+const states = CityLite('IN', 'MH');
 
 app.get('/', (req, res) => {
 
     request(`http://api.weatherapi.com/v1/current.json?key=aabd1021ee3d4a64b2835912221207&q=shevgaon&aqi=no`, function(error, response, body) {
         data = JSON.parse(body);
         res.render("index", {
-            data: data
+            data: data,
+            cities: states
         });
-        console.log(data);
+        // console.log(data);
+        console.log(states);
     });
 });
 app.post('/', urlencodedParser, (req, res) => {
@@ -24,7 +28,8 @@ app.post('/', urlencodedParser, (req, res) => {
     request(`http://api.weatherapi.com/v1/current.json?key=aabd1021ee3d4a64b2835912221207&q=${city}&aqi=no`, function(error, response, body) {
         data = JSON.parse(body);
         res.render("index", {
-            data: data
+            data: data,
+            cities: states
         });
         console.log(data);
     });

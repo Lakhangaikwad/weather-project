@@ -3,6 +3,7 @@
 <head>
     <title>Wheater Today</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
@@ -104,8 +105,13 @@
         <div class="main">
             <form action="/" id="loc" method="POST">
                 <div class="input-group rounded">
-
-                    <input type="text" name="cityname" class="form-control input" placeholder="Search Location..." aria-label="Search" aria-describedby="search-addon" />
+                    <input list="cities" placeholder="Search Location..." name="cityname" id="" class="form-control input" id="sr_no" data-live-search="true">
+                    <datalist id="cities">
+                        <% for(var i=0;i<cities.length;i++){ %>
+                        <option value="<%= cities[i] %>" ><%= cities[i] %></option>
+                        <% }%>
+                    </datalist>
+                    <!-- <input type="text" name="cityname" class="form-control input" placeholder="Search Location..." aria-label="Search" aria-describedby="search-addon" /> -->
                     <input type="submit" value="submit" id="submit" name="login" class="btn btn-primary btn-sm">
                 </div>
             </form>
