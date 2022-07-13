@@ -1,0 +1,85 @@
+<html>
+
+<head>
+    <title>Wheater Today</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<style>
+    .parent {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        background-image: url("images/defualt_wheather.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .main {
+        margin-top: 5vh;
+        height: 500px;
+        width: 25vw;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: aliceblue;
+    }
+    
+    .input {
+        background: transparent;
+        border: none;
+        border-radius: 0px;
+        border-bottom: 1px solid white !important;
+        color: aliceblue !important;
+        font-weight: 30px;
+    }
+    
+    .input:focus {
+        background: transparent;
+        border: none !important;
+        border-bottom: 1px solid white !important;
+    }
+    
+    .input:focus::placeholder {
+        color: white !important;
+        opacity: 1;
+    }
+    
+     ::placeholder {
+        color: white !important;
+        opacity: 1;
+    }
+    
+    .wheather {
+        margin-top: 30px;
+        /* margin-left: 40%; */
+        /* background-image: url("images/icons8-weather-96.png"); */
+        /* background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover; */
+        /* background-position: center; */
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="parent">
+        <div class="main">
+            <div class="input-group rounded">
+                <input type="search" class="form-control input" placeholder="Search Location..." aria-label="Search" aria-describedby="search-addon" />
+            </div>
+
+            <center><img src="images/icons8-weather-96.png" class="wheather" alt="wheather">
+                <h1>Shevgaon</h1>
+            </center>
+
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+<html>
+
+<head>
+    <title>Wheater Today</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<style>
+    .parent {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        background-image: url("images/defualt_wheather.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .main {
+        position: relative;
+        margin-top: 5vh;
+        height: 500px;
+        width: 25vw;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: aliceblue;
+    }
+    
+    .input {
+        background: transparent;
+        border: none;
+        border-radius: 0px;
+        border-bottom: 1px solid white !important;
+        color: aliceblue !important;
+        font-weight: 30px;
+    }
+    
+    .input:focus {
+        background: transparent;
+        border: none !important;
+        border-bottom: 1px solid white !important;
+    }
+    
+    .input:focus::placeholder {
+        color: white !important;
+        opacity: 1;
+    }
+    
+     ::placeholder {
+        color: white !important;
+        opacity: 1;
+    }
+    
+    .wheather {
+        margin-top: 10px;
+        /* margin-left: 40%; */
+        /* background-image: url("images/icons8-weather-96.png"); */
+        /* background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover; */
+        /* background-position: center; */
+        text-align: center;
+        height: 100px;
+    }
+    
+    .table {
+        text-align: center;
+        margin-top: 50px;
+        color: aliceblue;
+        font-size: small;
+    }
+    
+    .credit {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding-right: 5px;
+    }
+    
+    @media only screen and (max-width: 600px) {
+        .main {
+            margin-top: 5px;
+            height: 70vh;
+            width: 80vw;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: aliceblue;
+        }
+    }
+</style>
+<script type="text/javascript">
+    showAlert = function() {
+        alert('error: ');
+    }
+</script>
+
+<body>
+    <div class="parent">
+        <div class="main">
+            <form action="/" id="loc" method="POST">
+                <div class="input-group rounded">
+
+                    <input type="text" name="cityname" class="form-control input" placeholder="Search Location..." aria-label="Search" aria-describedby="search-addon" />
+                    <input type="submit" value="submit" id="submit" name="login" class="btn btn-primary btn-sm">
+                </div>
+            </form>
+            <% if(data.error==null){%>
+                <center>
+                    <img src="<%=data.current.condition.icon %>" class="wheather" alt="wheather">
+                    <p>
+                        <%= data.current.condition.text %>
+                    </p>
+                    <h1>
+                        <%= data.location.name %>
+                    </h1>
+                    <p>
+                        <%= data.location.region %> |
+                            <%= data.location.country %>
+                    </p>
+                </center>
+                <div class="table1">
+                    <center>
+                        <table class="table">
+                            <tr>
+                                <td>
+                                    Temp:
+                                    <%= data.current.temp_c %><sup>0</sup>C</td>
+                                <td>
+                                    Humidity:
+                                    <%= data.current.humidity %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Wind:
+                                    <%= data.current.wind_kph %> kmp</td>
+                                <td>Wind Dir:
+                                    <%= data.current.wind_dir %>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Cloud:
+                                    <%= data.current.cloud %>
+                                </td>
+                                <td>UV index:
+                                    <%= data.current.uv %>
+                                </td>
+                            </tr>
+                        </table>
+                    </center>
+                </div>
+                <% } else {
+                    %>
+                    <script>
+                        alert("<%= data.error.message%>");
+                    </script>
+                    <%
+                }%>
+                        <small class="credit">By lakhan gaikwad</small>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
