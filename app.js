@@ -6,7 +6,7 @@ const request = require('request');
 const port = process.env.PORT || 8080;
 
 app.use(express.static('public'));
-app.set('view engine', 'ejs');
+app.set('view engine', require('ejs'));
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.get('/', (req, res) => {
