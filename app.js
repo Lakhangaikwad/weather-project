@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const request = require('request');
 const cons = require('consolidate');
+const port = proccess.env.PORT || 8080;
 
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
@@ -37,6 +38,6 @@ app.get('/second', (req, res) => {
     });
     console.log(data);
 });
-app.listen(8080, () => {
+app.listen(port, () => {
     console.log("app is running on 8080");
 });
