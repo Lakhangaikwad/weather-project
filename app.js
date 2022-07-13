@@ -3,10 +3,10 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const app = express();
 const request = require('request');
-const port = process.env.PORT || 8080;
-
+require('ejs')
+let data = "";
 app.use(express.static('public'));
-app.set('view engine', require('ejs'));
+app.set('view engine', 'ejs');
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.get('/', (req, res) => {
