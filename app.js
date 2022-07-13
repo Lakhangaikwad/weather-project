@@ -37,6 +37,6 @@ app.get('/second', (req, res) => {
     });
     console.log(data);
 });
-app.listen(port, () => {
-    console.log("app is running on 8080");
+app.listen(process.env.PORT || 3000, function() {
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
